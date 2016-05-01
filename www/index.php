@@ -59,9 +59,9 @@
             </h2>
         </div>
 		<?php 
-		$rand_actor_id = rand ( int $min , int $max );
-		$rand_movie_id = rand ( int $min , int $max );
-		$rand_director_id = rand ( int $min , int $max );
+		$rand_actor_id = rand (  0 ,  10 );
+		$rand_movie_id = rand (  0 ,  10 );
+		$rand_director_id = rand (  0 ,  10 );
 		
 		
 		?>

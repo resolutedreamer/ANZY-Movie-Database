@@ -86,14 +86,16 @@
 			
 			$query = $actor_query;
 			//echo $query;
-			print_table_from_query($query);
+			$result = result_from_query($query);
+			print_result($result);
 			
 			echo "<h2>" . "Movie Search Results" . "</h2>";
 			echo "<p><u>" . "Searching for</u>: <b>" . $user_search . "</b></p>";
 			
-			$query = $movie_querry;
+			$query = $movie_query;
 			//echo $query;
-			print_table_from_query($query);
+			$result = result_from_query($query);
+			print_result($result);
 		?>
     </div> 
 </body>

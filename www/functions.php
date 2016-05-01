@@ -1,5 +1,5 @@
 <?php
-function print_table_from_query($query)
+function result_from_query($query, $table_type = "actor")
 {
 	// now we gotta parse the query for different words
 	$db_connection = mysql_connect("localhost", "cs143", "");
@@ -10,13 +10,23 @@ function print_table_from_query($query)
 		exit(1);
 	}
 	mysql_select_db("CS143", $db_connection);
+	
+	
 	$result = mysql_query($query, $db_connection);
-	//$result = mysql_query($my_SQL_query, $db_connection);
 	if (!$result) {
 		die('Query failed: ' . mysql_error());
 	}
-	
-	
+	mysql_close($db_connection);
+	return $result;
+}
+
+function get_ids_from_result($result) {
+	ids = array();
+	return ids;
+}
+
+function print_result($result)
+{
 	/* get column metadata */
 	$i = 0;
 	echo "<table class='table table-striped'>"; // start a table tag in the HTML
@@ -27,6 +37,7 @@ function print_table_from_query($query)
 		if (!$meta) {
 			echo "No information available<br />\n";
 		}
+		// this line is used to print the title of each column of the table
 		echo "<td>" . $meta->name . "</td>";
 		/*
 		echo "<pre>
@@ -52,11 +63,13 @@ function print_table_from_query($query)
 	$num_columns = $i;
 	$i = 0;
 	//echo "The result has: " . $num_columns . " columns.";
-
-	while($row = mysql_fetch_row($result)){   //Creates a loop to loop through results
+	
+	while($row = mysql_fetch_row($result)){
+		//Creates a loop to loop through results
 		echo "<tr>";
+		
 		while ($i < $num_columns ) {
-			echo "<td>" . $row[$i] . "</td>";
+			echo "<td><a href=\"detail.php?type=$table_type&id=$row[0]\">" . $row[$i] . "</a></td>";
 			$i++;
 		}
 		echo "</tr>";
@@ -64,6 +77,7 @@ function print_table_from_query($query)
 	}
 
 	echo "</table>"; //Close the table in HTML
-	mysql_close($db_connection);
 }
+
+
 ?>
