@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <?php 
+	include 'functions.php';
+?>
+<?php
 	$page_type = $_GET['type'];
 	$id = $_GET['id'];
 	$title = "Actor Information";

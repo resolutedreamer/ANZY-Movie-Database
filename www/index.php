@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
+<?php 
+	include 'functions.php';
+?>
 <head>
     <title>ANZY Movie Database - Homepage</title>
     <meta charset="utf-8" />

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <?php 
+	include 'functions.php';
+?>
+<?php 
 	$page_type = $_GET['type'];
 	echo $page_type;
 	$title = "All Actors";
@@ -107,9 +110,6 @@
 			if (!$result) {
 				die('Query failed: ' . mysql_error());
 			}
-			
-			
-			
 			
 			/* get column metadata */
 			$i = 0;
