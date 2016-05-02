@@ -1,5 +1,5 @@
 <?php
-function result_from_query($query, $table_type = "actor")
+function result_from_query($query)
 {
 	// now we gotta parse the query for different words
 	$db_connection = mysql_connect("localhost", "cs143", "");
@@ -20,12 +20,7 @@ function result_from_query($query, $table_type = "actor")
 	return $result;
 }
 
-function get_ids_from_result($result) {
-	ids = array();
-	return ids;
-}
-
-function print_result($result)
+function print_result($result, $table_type = "actor")
 {
 	/* get column metadata */
 	$i = 0;
@@ -77,6 +72,11 @@ function print_result($result)
 	}
 
 	echo "</table>"; //Close the table in HTML
+}
+
+function get_ids_from_result($result) {
+	//array ids = array();
+	return $result;
 }
 
 

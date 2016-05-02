@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php 
-	include 'functions.php';
+	include 'subpages/functions.php';
 ?>
 <?php
 	$page_type = $_GET['type'];
@@ -21,6 +21,7 @@
 		default:
 			$title = "Detailed Actor Information";
 	}
+	
 ?>
 <head>
     <title>ANZY Movie Database - <?php echo $title; ?></title>
@@ -29,47 +30,12 @@
 </head>
 <body>
     <div class="container">
-        
-				<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-			  <a class="navbar-brand" href="index.php">ANZY Movie Database</a>
-			</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			  <ul class="nav navbar-nav">
-				<li><a href="full_list.php?type=actor">Actor List <span class="sr-only">(current)</span></a></li>
-				<li><a href="full_list.php?type=movie">Movie List </a></li>
-				<li><a href="full_list.php?type=director">Director List </a></li>
-				
-				<li class="dropdown">
-				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add Info<span class="caret"></span></a>
-				  <ul class="dropdown-menu">
-					<li><a href="add_info.php?add=actor_director">Add Actor/Director</a></li>
-					<li><a href="add_info.php?add=movie">Add Movie</a></li>
-					<li><a href="add_info.php?add=comment">Add Movie Comment</a></li>
-					<li role="separator" class="divider"></li>
-					<li><a href="add_info.php?add=actor_to_movie">Add Actors to Movie</a></li>
-					<li><a href="add_info.php?add=director_to_movie">Add Directors to Movie</a></li>
-				  </ul>
-				</li>
+	<?php
+		include 'subpages/nav_bar.php';
+	?>
 
-			  </ul>
-			  
-			  <form class="navbar-form navbar-right" role="form" action="search.php">
-				<div class="form-group">
-				  <input type="text" name="query" class="form-control" placeholder="Search for Actor or Movie">
-				</div>
-				<button type="submit" class="btn btn-default">Search</button>
-			  </form>
-			  
-			</div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
-		
-        <div class="jumbotron">
+	<div class="jumbotron">
             <h1>
                 ANZY Movie Database
             </h1>
@@ -78,8 +44,10 @@
             </h2>
         </div>
 		
+		<!--
 		<?php
 			$query = "select * from Actor where id=$id";
+			/*
 			switch ($page_type) {
 				case "actor":
 					// first print our actor information
@@ -98,7 +66,8 @@
 					// now print that table out
 					$result = result_from_query($query, $table_type);
 					print_result($result);
-					*/
+					
+					echo "qq";
 					break;
 				case "movie":
 					// first print our movie information
@@ -123,7 +92,7 @@
 					
 					
 					// button to add comments
-					echo 
+					echo "qq";
 					
 					break;
 				case "director":
@@ -134,11 +103,12 @@
 					
 					break;
 				default:
+					echo "qq";
 			}
-			
+			*/
 		
 		?>
-		
+		-->
 		
     </div> 
 </body>
