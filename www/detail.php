@@ -83,6 +83,7 @@
 			switch ($page_type) {
 				case "actor":
 					// first print our actor information
+					/*
 					$query = "select * from Actor where id=$id";
 					$table_type = "actor";
 					$result = result_from_query($query, $table_type);
@@ -90,16 +91,39 @@
 					
 					// then using actor id (aid), get the ids of the movies they were in
 					$query = "select mid from MovieActor where aid=$id";
+					$result = result_from_query($query, $table_type);
+					ids = get_ids_from_result($result);
+					// using the ids, construct a new query
+					$query "select id, title from Movie where id in $ids";
 					// now print that table out
 					$result = result_from_query($query, $table_type);
 					print_result($result);
-					
+					*/
 					break;
 				case "movie":
+					// first print our movie information
 					$query = "select * from Movie where id=$id";
 					$table_type = "movie";
 					$result = result_from_query($query, $table_type);
 					print_result($result);
+					
+					// then using movie id (mid), get the ids of the actors that were in this movie
+					$query = "select aid from MovieActor where mid=$id";
+					$result = result_from_query($query, $table_type);
+					ids = get_ids_from_result($result);
+					// using the ids, construct a new query
+					$query "select id, first, last from Actor where id in $ids";
+					// now print that table out
+					$result = result_from_query($query, $table_type);
+					print_result($result);
+					
+					// then get all the user comments
+					
+					// then get the average of the scores
+					
+					
+					// button to add comments
+					echo 
 					
 					break;
 				case "director":

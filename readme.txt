@@ -1,15 +1,11 @@
-This ZIP file contains 8 files.
+ANZY Movie Database
+
+This website is my first project for the Spring 2016 session of CS 143: Database Systems at UCLA.
+It is written in PHP/HTML/CSS with Bootstrap. I collaborated with Yuyin Zhou on this project.
 
 readme.txt - this file
 
-team.txt - contains the UIDs of team members
+sql/create.sql - creates the tables in the in MySQL database where the data can be stored
+sql/load.sql - takes the data from files in the ~/data directory and then loads them into the database
 
-create.sql - creates the tables in the in MySQL database where the data can be stored
-
-load.sql - takes the data from files in the ~/data directory and then loads them into the database
-
-queries.sql - contains some example queries
-
-query.php - contains a website that allows querying froom the database using SELECT statement. The file uses HTTP forms with GET.
-
-violate.sql - this file contains SQL modification statements that violate constraints
+www/index.php - the homepage for the website
