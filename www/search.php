@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<script src="Scripts/jquery-2.2.2.min.js"></script>
+<script src="Scripts/bootstrap.min.js"></script>
 <?php 
 	include 'subpages/functions.php';
 ?>
@@ -69,6 +71,5 @@
   </div>
 </footer>
 
-<script src="Scripts/jquery-2.2.2.min.js"></script>
-<script src="Scripts/bootstrap.min.js"></script>    
+   
 </html>

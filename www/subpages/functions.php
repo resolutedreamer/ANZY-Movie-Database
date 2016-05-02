@@ -25,7 +25,7 @@ function print_result($result, $table_type = "actor")
 	/* get column metadata */
 	$i = 0;
 	echo "<table class='table table-striped'>"; // start a table tag in the HTML
-	echo "<tr>"; 
+	echo "<tr>";
 	while ($i < mysql_num_fields($result)) {
 		//echo "Information for column $i:<br />\n";
 		$meta = mysql_fetch_field($result, $i);
@@ -64,7 +64,7 @@ function print_result($result, $table_type = "actor")
 		echo "<tr>";
 		
 		while ($i < $num_columns ) {
-			echo "<td><a href=\"detail.php?type=$table_type&id=$row[0]\">" . $row[$i] . "</a></td>";
+			echo "<td><a href=\"detail.php?type=$table_type&id=$row[0]&title=$title\">" . $row[$i] . "</a></td>";
 			$i++;
 		}
 		echo "</tr>";
@@ -75,9 +75,23 @@ function print_result($result, $table_type = "actor")
 }
 
 function get_ids_from_result($result) {
-	//array ids = array();
-	return $result;
+	$id_array = array();
+	
+	while($row = mysql_fetch_row($result)){
+		$id_array = array_push($row[0]);
+	}
+	
+	return $id_array;
 }
 
+function get_movie_info_from_id($id) {
+	
+	return $id;
+}
+
+function get_actor_info_from_id($id) {
+	
+	return $id;
+}
 
 ?>

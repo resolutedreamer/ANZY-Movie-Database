@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
+<script src="Scripts/jquery-2.2.2.min.js"></script>
+<script src="Scripts/bootstrap.min.js"></script>
 <?php 
 	include 'subpages/functions.php';
 ?>
 <?php 
 	$page_type = $_GET['add'];
+	$mid = $_GET['id'];
 	$title = "Homepage";
 	
 	switch ($page_type) {
@@ -521,22 +524,6 @@ if($_GET['mid'] AND $_GET['subject']){
 ?>	
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
     </div> 
 </body>
 
@@ -546,6 +533,4 @@ if($_GET['mid'] AND $_GET['subject']){
   </div>
 </footer>
 
-<script src="Scripts/jquery-2.2.2.min.js"></script>
-<script src="Scripts/bootstrap.min.js"></script> 
 </html>

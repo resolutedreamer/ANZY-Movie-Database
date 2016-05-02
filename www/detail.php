@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
+<script src="Scripts/jquery-2.2.2.min.js"></script>
+<script src="Scripts/bootstrap.min.js"></script>
 <?php 
 	include 'subpages/functions.php';
 ?>
 <?php
 	$page_type = $_GET['type'];
 	$id = $_GET['id'];
+	$movie_title = $_GET['title'];
 	$title = "Detailed Actor Information";
 	
 	switch ($page_type) {
 		case "actor":
-			$title = "Detailed Actor Information";
+			$title = "Detailed Actor Information: $movie_title";
 			break;
 		case "movie":
-			$title = "Detailed Movie Information";
+			$title = "Detailed Movie Information: $movie_title";
 			break;
 		case "director":
-			$title = "Detailed Director Information";
+			$title = "Detailed Director Information: $movie_title";
 			break;
 		default:
-			$title = "Detailed Actor Information";
+			$title = "Detailed Actor Information: $movie_title";
 	}
 	
 ?>
@@ -44,47 +47,46 @@
             </h2>
         </div>
 		
-		<!--
 		<?php
 			$query = "select * from Actor where id=$id";
-			/*
+			
 			switch ($page_type) {
 				case "actor":
 					// first print our actor information
-					/*
+					
 					$query = "select * from Actor where id=$id";
 					$table_type = "actor";
-					$result = result_from_query($query, $table_type);
-					print_result($result);
+					$result = result_from_query($query);
+					print_result($result, $table_type);
 					
 					// then using actor id (aid), get the ids of the movies they were in
 					$query = "select mid from MovieActor where aid=$id";
-					$result = result_from_query($query, $table_type);
-					ids = get_ids_from_result($result);
+					$result = result_from_query($query);
+					$ids = get_ids_from_result($result);
 					// using the ids, construct a new query
 					$query "select id, title from Movie where id in $ids";
 					// now print that table out
-					$result = result_from_query($query, $table_type);
-					print_result($result);
+					$result = result_from_query($query);
+					print_result($result, $table_type);
 					
-					echo "qq";
+					echo "I am an actor.";
 					break;
 				case "movie":
 					// first print our movie information
 					$query = "select * from Movie where id=$id";
 					$table_type = "movie";
-					$result = result_from_query($query, $table_type);
-					print_result($result);
+					$result = result_from_query($query);
+					print_result($result, $table_type);
 					
 					// then using movie id (mid), get the ids of the actors that were in this movie
 					$query = "select aid from MovieActor where mid=$id";
-					$result = result_from_query($query, $table_type);
-					ids = get_ids_from_result($result);
+					$result = result_from_query($query);
+					$ids = get_ids_from_result($result);
 					// using the ids, construct a new query
 					$query "select id, first, last from Actor where id in $ids";
 					// now print that table out
-					$result = result_from_query($query, $table_type);
-					print_result($result);
+					$result = result_from_query($query);
+					print_result($result, $table_type);
 					
 					// then get all the user comments
 					
@@ -92,23 +94,22 @@
 					
 					
 					// button to add comments
-					echo "qq";
+					echo "I am a movie.";
 					
 					break;
 				case "director":
 					$query = "select * from Director where id=$id";
 					$table_type = "director";
-					$result = result_from_query($query, $table_type);
-					print_result($result);
-					
+					$result = result_from_query($query);
+					print_result($result, $table_type);
+					echo "I am a director.";
 					break;
 				default:
 					echo "qq";
 			}
-			*/
+			
 		
 		?>
-		-->
 		
     </div> 
 </body>
@@ -119,6 +120,4 @@
   </div>
 </footer>
 
-<script src="Scripts/jquery-2.2.2.min.js"></script>
-<script src="Scripts/bootstrap.min.js"></script> 
 </html>
