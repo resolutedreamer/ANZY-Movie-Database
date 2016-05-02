@@ -52,57 +52,56 @@
 			
 			switch ($page_type) {
 				case "actor":
-					// first print our actor information
-					
 					$query = "select * from Actor where id=$id";
 					$table_type = "actor";
 					$result = result_from_query($query);
+					echo "I am an actor.";
 					print_result($result, $table_type);
-					
+
 					// then using actor id (aid), get the ids of the movies they were in
 					$query = "select mid from MovieActor where aid=$id";
 					$result = result_from_query($query);
-					$ids = get_ids_from_result($result);
-					// using the ids, construct a new query
-					$query "select id, title from Movie where id in $ids";
-					// now print that table out
-					$result = result_from_query($query);
 					print_result($result, $table_type);
 					
-					echo "I am an actor.";
+					$ids = get_ids_from_result($result);
+					
+					// using the ids of the movies, get the movies info
+					$query = "select * from Movie where mid=$ids";
+					
+					
 					break;
 				case "movie":
-					// first print our movie information
 					$query = "select * from Movie where id=$id";
 					$table_type = "movie";
 					$result = result_from_query($query);
+					echo "I am a movie.";
 					print_result($result, $table_type);
 					
-					// then using movie id (mid), get the ids of the actors that were in this movie
+					// then using actor id (aid), get the ids of the movies they were in
 					$query = "select aid from MovieActor where mid=$id";
-					$result = result_from_query($query);
-					$ids = get_ids_from_result($result);
-					// using the ids, construct a new query
-					$query "select id, first, last from Actor where id in $ids";
-					// now print that table out
 					$result = result_from_query($query);
 					print_result($result, $table_type);
 					
 					// then get all the user comments
+					$query = "select * from Review where mid=$id";
+					$result = result_from_query($query);
+					print_result($result, $table_type);
 					
 					// then get the average of the scores
-					
+					$query = "select avg(rating) from Review where mid=$id";
+					$result = result_from_query($query);
+					print_result($result, $table_type);
 					
 					// button to add comments
-					echo "I am a movie.";
+					echo "<a href='add_info.php?add=comment&mid=$id'><button type='button' class='btn btn-default'>Add Comment</button></a>";
 					
 					break;
 				case "director":
 					$query = "select * from Director where id=$id";
 					$table_type = "director";
 					$result = result_from_query($query);
-					print_result($result, $table_type);
 					echo "I am a director.";
+					print_result($result, $table_type);
 					break;
 				default:
 					echo "qq";
