@@ -1,4 +1,4 @@
-ANZY Movie Database
+#ANZY Movie Database
 
 This website is my first project for the Spring 2016 session of CS 143: Database Systems at UCLA.
 It is written in PHP/HTML/CSS with Bootstrap. I collaborated with Yuyin Zhou on this project.
